@@ -1,0 +1,33 @@
+<resources>
+    <!-- QuanLauncher comics palette -->
+    <color name="primary">#E63946</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="secondary">#1D70F5</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="primary_container">#FFD6D9</color>
+    <color name="on_primary_container">#111111</color>
+    <color name="tertiary">#FFC400</color>
+    <color name="on_tertiary">#111111</color>
+    <color name="external_mod_ad">#FF8A00</color>
+    <color name="error">#D00000</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="background">#FFF3C4</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#FFE9A8</color>
+    <color name="on_background">#111111</color>
+    <color name="on_surface">#111111</color>
+    <color name="on_surface_variant">#111111</color>
+    <color name="outline">#111111</color>
+    <color name="white">#FFFFFF</color>
+    <color name="divider">#111111</color>
+    <color name="scrim">#66000000</color>
+    <color name="glow_green">#FFC400</color>
+    <color name="glow_cyan">#1D70F5</color>
+    <color name="abi_label_text">#111111</color>
+    <color name="accent_text">#E63946</color>
+    <color name="text_primary">#111111</color>
+    <color name="text_secondary">#4A4A4A</color>
+    <color name="qa_icon_color">#111111</color>
+    <color name="ic_launcher_adaptive_back">#FFC400</color>
+    <color name="comic_ink">#111111</color>
+</resources>

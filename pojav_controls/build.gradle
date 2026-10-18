@@ -1,0 +1,25 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'org.levimc.pojavcontrols'
+    compileSdkVersion 36
+
+    defaultConfig {
+        minSdkVersion 28
+        targetSdkVersion 35
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.gson
+}
