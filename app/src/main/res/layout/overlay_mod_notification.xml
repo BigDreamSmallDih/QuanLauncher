@@ -23,7 +23,7 @@
                 android:id="@+id/notification_icon"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:tint="#4AE0A0" />
+                android:tint="#ADB1C4" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:textColor="#4AE0A0"
+                    android:textColor="#ADB1C4"
                     android:textSize="11sp" />
 
             </LinearLayout>

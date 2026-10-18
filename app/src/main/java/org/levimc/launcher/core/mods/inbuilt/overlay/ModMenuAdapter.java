@@ -147,7 +147,7 @@ public class ModMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             title.setLayoutParams(params);
             title.setGravity(Gravity.CENTER_VERTICAL);
             title.setPadding((int) (6 * density), 0, (int) (6 * density), 0);
-            title.setTextColor(0xFF4AE0A0);
+            title.setTextColor(0xFFADB1C4);
             title.setTextSize(11);
             title.setTypeface(null, Typeface.BOLD);
             title.setSingleLine(true);
@@ -246,7 +246,7 @@ public class ModMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     private void updateStatusView(ModViewHolder holder, boolean enabled) {
-        int accent = 0xFF4AE0A0;
+        int accent = 0xFFADB1C4;
 
         if (enabled) {
             holder.statusText.setText(R.string.mod_status_enabled);

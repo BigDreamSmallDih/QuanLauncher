@@ -5,10 +5,10 @@ import android.content.Context;
 public class FeatureSettings {
     private static volatile FeatureSettings INSTANCE;
     private static Context appContext;
-    private boolean versionIsolationEnabled = false;
+    private boolean versionIsolationEnabled = true;
     private boolean launcherManagedMcLoginEnabled = false;
     private boolean logcatOverlayEnabled = false;
-    private boolean foregroundServiceEnabled = false;
+    private boolean foregroundServiceEnabled = true;
     private Boolean crashUploadEnabled = true;
 
     public enum StorageType {

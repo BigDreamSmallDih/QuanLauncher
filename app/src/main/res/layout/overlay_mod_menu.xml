@@ -50,14 +50,14 @@
                     android:defaultFocusHighlightEnabled="false"
                     android:drawableStart="@drawable/ic_modules"
                     android:drawablePadding="8dp"
-                    android:drawableTint="#4AE0A0"
+                    android:drawableTint="#ADB1C4"
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:gravity="center_vertical"
                     android:paddingStart="16dp"
                     android:paddingEnd="12dp"
                     android:text="@string/mod_menu_modules"
-                    android:textColor="#4AE0A0"
+                    android:textColor="#ADB1C4"
                     android:textSize="13sp"
                     android:textStyle="bold" />
 
@@ -73,7 +73,7 @@
                     android:padding="12dp"
                     android:scaleType="center"
                     android:src="@drawable/ic_modules"
-                    android:tint="#4AE0A0"
+                    android:tint="#ADB1C4"
                     android:visibility="gone" />
 
                 <TextView
@@ -274,7 +274,7 @@
                             android:paddingStart="14dp"
                             android:paddingEnd="14dp"
                             android:text="@string/filter_all"
-                            android:textColor="#4AE0A0"
+                            android:textColor="#ADB1C4"
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
@@ -374,7 +374,7 @@
                         android:paddingStart="12dp"
                         android:paddingEnd="10dp"
                         android:text="@string/filter_all"
-                        android:textColor="#4AE0A0"
+                        android:textColor="#ADB1C4"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -462,7 +462,7 @@
                             android:alpha="0.8"
                             android:text="@string/mod_menu_general_settings"
                             android:textAllCaps="true"
-                            android:textColor="#4AE0A0"
+                            android:textColor="#ADB1C4"
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
@@ -510,7 +510,7 @@
                                 android:id="@+id/switch_notifications"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:thumbTint="#4AE0A0"
+                                android:thumbTint="#ADB1C4"
                                 android:trackTint="@color/switch_track_color" />
 
                         </LinearLayout>
@@ -560,7 +560,7 @@
                                 android:id="@+id/switch_pause_menu_only"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:thumbTint="#4AE0A0"
+                                android:thumbTint="#ADB1C4"
                                 android:trackTint="@color/switch_track_color" />
 
                         </LinearLayout>
@@ -616,7 +616,7 @@
                                 android:minWidth="44dp"
                                 android:gravity="center"
                                 android:text="M"
-                                android:textColor="#4AE0A0"
+                                android:textColor="#ADB1C4"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -636,7 +636,7 @@
                             android:alpha="0.8"
                             android:text="@string/mod_menu_appearance"
                             android:textAllCaps="true"
-                            android:textColor="#4AE0A0"
+                            android:textColor="#ADB1C4"
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
@@ -685,7 +685,7 @@
                                 android:id="@+id/switch_compact_mod_menu"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:thumbTint="#4AE0A0"
+                                android:thumbTint="#ADB1C4"
                                 android:trackTint="@color/switch_track_color" />
 
                         </LinearLayout>
@@ -725,7 +725,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/mod_menu_default_percent"
-                                    android:textColor="#4AE0A0"
+                                    android:textColor="#ADB1C4"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -739,8 +739,8 @@
                                 android:max="100"
                                 android:min="70"
                                 android:progress="100"
-                                android:progressTint="#4AE0A0"
-                                android:thumbTint="#4AE0A0" />
+                                android:progressTint="#ADB1C4"
+                                android:thumbTint="#ADB1C4" />
 
                         </LinearLayout>
 
@@ -780,7 +780,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/mod_menu_default_percent"
-                                    android:textColor="#4AE0A0"
+                                    android:textColor="#ADB1C4"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -794,8 +794,8 @@
                                 android:max="100"
                                 android:min="0"
                                 android:progress="100"
-                                android:progressTint="#4AE0A0"
-                                android:thumbTint="#4AE0A0" />
+                                android:progressTint="#ADB1C4"
+                                android:thumbTint="#ADB1C4" />
 
                         </LinearLayout>
 
@@ -871,7 +871,7 @@
                         android:layout_marginEnd="8dp"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_drag_handle"
-                        android:tint="#4AE0A0" />
+                        android:tint="#ADB1C4" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -892,7 +892,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:text="@string/hud_editor_drag_hint"
-                            android:textColor="#4AE0A0"
+                            android:textColor="#ADB1C4"
                             android:textSize="11sp" />
 
                     </LinearLayout>
@@ -907,7 +907,7 @@
                     android:contentDescription="@string/save"
                     android:padding="8dp"
                     android:src="@drawable/ic_check"
-                    android:tint="#4AE0A0" />
+                    android:tint="#ADB1C4" />
 
                 <ImageButton
                     android:id="@+id/btn_hud_reset"
@@ -944,7 +944,7 @@
                     android:layout_width="82dp"
                     android:layout_height="wrap_content"
                     android:text="@string/overlay_button_size"
-                    android:textColor="#4AE0A0"
+                    android:textColor="#ADB1C4"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -956,8 +956,8 @@
                     android:max="100"
                     android:min="20"
                     android:progress="56"
-                    android:progressTint="#4AE0A0"
-                    android:thumbTint="#4AE0A0" />
+                    android:progressTint="#ADB1C4"
+                    android:thumbTint="#ADB1C4" />
 
             </LinearLayout>
 
