@@ -548,7 +548,25 @@ class GamePackageManager private constructor(
                 LibraryLoadResult(normalizedName, fileName, source, false, elapsedSince(startedAt), detail)
             }
         } else {
-            val detail = "$fileName not found in $nativeLibDir"
+            if (fileName == "libc++_shared.so") {
+                // Game tidak menyediakan libc++_shared.so: pakai salinan yang ikut di APK launcher
+                try {
+                    System.loadLibrary("c++_shared")
+                    return LibraryLoadResult(
+                        normalizedName, fileName, "launcher bundled c++_shared fallback",
+                        true, elapsedSince(startedAt)
+                    )
+                } catch (t: Throwable) {
+                    Log.w(TAG, "Bundled c++_shared fallback failed: ${t.message}")
+                }
+            }
+            val present = try {
+                File(nativeLibDir).list()?.filter { !it.startsWith(".") }?.sorted()?.joinToString(",")
+                    ?: "none"
+            } catch (_: Exception) {
+                "?"
+            }
+            val detail = "$fileName not found in $nativeLibDir (cache: $present)"
             Log.w(TAG, detail)
             LibraryLoadResult(normalizedName, fileName, source, false, elapsedSince(startedAt), detail)
         }
