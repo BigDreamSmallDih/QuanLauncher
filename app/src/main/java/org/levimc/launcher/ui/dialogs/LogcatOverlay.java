@@ -94,6 +94,7 @@ public class LogcatOverlay extends FrameLayout {
 
     private Process logcatProc;
     private Thread readerThread;
+    private volatile boolean stopping = false;
 
     public LogcatOverlay(Context context) { super(context); prefs = init(context); }
     public LogcatOverlay(Context context, AttributeSet attrs) { super(context, attrs); prefs = init(context); }
@@ -412,6 +413,7 @@ public class LogcatOverlay extends FrameLayout {
     }
 
     private void startReader() {
+        stopping = false;
         readerThread = new Thread(() -> {
             try {
                 List<String> cmd = new ArrayList<>();
@@ -428,14 +430,21 @@ public class LogcatOverlay extends FrameLayout {
                 while ((line = reader.readLine()) != null) {
                     if (!paused) pendingLines.offer(line);
                 }
+                if (!stopping) {
+                    String code = "?";
+                    try { code = String.valueOf(logcatProc.exitValue()); } catch (Throwable ignored) {}
+                    pendingLines.offer("[overlay] logcat berhenti (exit " + code + ")");
+                }
             } catch (Exception e) {
                 e.printStackTrace();
+                if (!stopping) pendingLines.offer("[overlay] logcat error: " + e);
             }
         }, "LogcatReader");
         readerThread.start();
     }
 
     private void stopReader() {
+        stopping = true;
         try {
             if (logcatProc != null) logcatProc.destroy();
             if (readerThread != null && readerThread.isAlive()) readerThread.interrupt();

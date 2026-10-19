@@ -128,8 +128,24 @@
             android:includeFontPadding="false"
             android:lineSpacingExtra="3dp"
             android:textColor="#E6E8F2"
+            android:textIsSelectable="true"
             android:textSize="11sp" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/minecraftLaunchCopy"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:background="@drawable/bg_launch_button"
+        android:minWidth="0dp"
+        android:paddingHorizontal="14dp"
+        android:text="@string/minecraft_loading_copy"
+        android:textAllCaps="false"
+        android:textColor="@color/on_primary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/minecraftLaunchLogTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/minecraftLaunchLogTitle" />
 
     <Button
         android:id="@+id/minecraftLaunchReturn"

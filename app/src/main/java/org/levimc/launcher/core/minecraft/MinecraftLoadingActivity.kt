@@ -74,6 +74,18 @@ class MinecraftLoadingActivity : BaseActivity(), MinecraftRuntimePreparer.Progre
         logScroll = findViewById(R.id.minecraftLaunchLogScroll)
         returnButton = findViewById(R.id.minecraftLaunchReturn)
 
+        findViewById<Button>(R.id.minecraftLaunchCopy).setOnClickListener {
+            val clipboard = getSystemService(android.content.Context.CLIPBOARD_SERVICE)
+                as android.content.ClipboardManager
+            clipboard.setPrimaryClip(
+                android.content.ClipData.newPlainText(
+                    "QuanLauncher launch log",
+                    visibleLogMessages.joinToString("\n")
+                )
+            )
+            android.widget.Toast.makeText(this, R.string.minecraft_loading_copied, android.widget.Toast.LENGTH_SHORT).show()
+        }
+
         returnButton.setOnClickListener {
             appendLog("Returning to launcher")
             returnToLauncher()

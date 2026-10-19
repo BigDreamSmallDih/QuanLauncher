@@ -616,6 +616,8 @@
     <string name="foreground_service_channel">Minecraft background protection</string>
     <string name="foreground_service_notification_title">Minecraft is being kept active</string>
     <string name="foreground_service_notification_text">Minecraft background mode is active. CPU and network access are being kept available for the current session.</string>
+    <string name="minecraft_loading_copy" translatable="false">Copy log</string>
+    <string name="minecraft_loading_copied" translatable="false">Log copied</string>
     <string name="logcat_live">Logcat: <b>live</b></string>
     <string name="logcat_paused">Logcat: paused</string>
     <!-- Logcat Overlay i18n -->

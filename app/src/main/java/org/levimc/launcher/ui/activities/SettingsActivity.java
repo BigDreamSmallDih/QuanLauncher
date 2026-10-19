@@ -280,8 +280,12 @@ public class SettingsActivity extends BaseActivity {
             fs.setLogcatOverlayEnabled(checked);
             try {
                 LogcatOverlayManager mgr = LogcatOverlayManager.getInstance();
-                if (mgr != null) mgr.refreshVisibility();
+                if (mgr != null) {
+                    mgr.ensureAttached(this);
+                    mgr.refreshVisibility();
+                }
             } catch (Throwable ignored) {}
+            Toast.makeText(this, checked ? "Logcat overlay: ON" : "Logcat overlay: OFF", Toast.LENGTH_SHORT).show();
         });
 
         SwitchMaterial switchForegroundService = findViewById(R.id.switch_foreground_service);
