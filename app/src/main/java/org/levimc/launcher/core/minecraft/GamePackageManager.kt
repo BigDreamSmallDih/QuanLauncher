@@ -29,6 +29,10 @@ class GamePackageManager private constructor(
     private val assetManager: AssetManager
     private val nativeLibDir: String
     private val applicationInfo: ApplicationInfo
+    private val extractionDiag = StringBuilder()
+    private fun diag(msg: String) {
+        if (extractionDiag.length < 700) extractionDiag.append(msg).append("; ")
+    }
 
     private val knownPackages = arrayOf(MinecraftLauncher.MC_PACKAGE_NAME)
 
@@ -128,6 +132,7 @@ class GamePackageManager private constructor(
         }
 
         val apkFiles = collectApkFiles()
+        diag("apks=" + apkFiles.size + apkFiles.joinToString(",", "[", "]") { it.name })
         val manifestString = buildExtractionManifest(apkFiles)
         val manifestFile = File(outputDir, ".extraction_manifest")
         val markerMatches = try {
@@ -176,6 +181,7 @@ class GamePackageManager private constructor(
             }
         } else {
             val appInfo = packageContext.applicationInfo
+            diag("nativeDirFiles=" + (File(appInfo.nativeLibraryDir).list()?.size ?: -1))
             if (File(appInfo.nativeLibraryDir).exists()) {
                 copyFromNativeDir(appInfo.nativeLibraryDir, outputDir)
             }
@@ -263,6 +269,7 @@ class GamePackageManager private constructor(
                     }
                     logFileOperation("Copied", lib)
                 } catch (e: Exception) {
+                    diag("copy fail $lib: ${e.message}")
                     logFileOperation("Failed to copy", lib, e = e)
                 }
             } else {
@@ -278,17 +285,20 @@ class GamePackageManager private constructor(
             return
         }
         if (!apkPath.contains("arm") && !apkPath.contains("x86") && !apkPath.contains("base.apk")) {
+            diag("skip ${apkFile.name}")
             return
         }
 
         try {
             ZipFile(apkPath).use { zip ->
                 val abiPath = "lib/$abi"
+                var found = 0
                 extractableLibs.forEach { lib ->
                     val entry = zip.getEntry("$abiPath/$lib")
                     if (entry == null) {
                         return@forEach
                     }
+                    found++
                     val output = File(outputDir, lib)
                     zip.getInputStream(entry).use { input ->
                         copyStreamToReadOnlyFile(input, output)
@@ -299,8 +309,10 @@ class GamePackageManager private constructor(
                         throw IOException("Failed to prepare native library: ${output.name}")
                     }
                 }
+                diag("${apkFile.name}($abi):$found")
             }
         } catch (e: Exception) {
+            diag("fail ${apkFile.name}: ${e.message}")
             Log.w(TAG, "Failed to extract libraries from $apkPath: ${e.message}")
         }
     }
@@ -566,7 +578,7 @@ class GamePackageManager private constructor(
             } catch (_: Exception) {
                 "?"
             }
-            val detail = "$fileName not found in $nativeLibDir (cache: $present)"
+            val detail = "$fileName not found in $nativeLibDir (cache: $present) [${extractionDiag.toString().take(500)}]"
             Log.w(TAG, detail)
             LibraryLoadResult(normalizedName, fileName, source, false, elapsedSince(startedAt), detail)
         }
