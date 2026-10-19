@@ -31,7 +31,7 @@ class GamePackageManager private constructor(
     private val applicationInfo: ApplicationInfo
     private val extractionDiag = StringBuilder()
     private fun diag(msg: String) {
-        if (extractionDiag.length < 700) extractionDiag.append(msg).append("; ")
+        if (extractionDiag.length < 1400) extractionDiag.append(msg).append("; ")
     }
 
     private val knownPackages = arrayOf(MinecraftLauncher.MC_PACKAGE_NAME)
@@ -133,6 +133,10 @@ class GamePackageManager private constructor(
 
         val apkFiles = collectApkFiles()
         diag("apks=" + apkFiles.size + apkFiles.joinToString(",", "[", "]") { it.name })
+        diag(
+            "gxcore=" + org.levimc.launcher.util.NativeBridgeHelper.ensureGxCoreLoaded() +
+                " err=" + org.levimc.launcher.util.NativeBridgeHelper.lastGxCoreError
+        )
         val manifestString = buildExtractionManifest(apkFiles)
         val manifestFile = File(outputDir, ".extraction_manifest")
         val markerMatches = try {
@@ -578,7 +582,7 @@ class GamePackageManager private constructor(
             } catch (_: Exception) {
                 "?"
             }
-            val detail = "$fileName not found in $nativeLibDir (cache: $present) [${extractionDiag.toString().take(500)}]"
+            val detail = "$fileName not found in $nativeLibDir (cache: $present) [${extractionDiag.toString().take(1000)}]"
             Log.w(TAG, detail)
             LibraryLoadResult(normalizedName, fileName, source, false, elapsedSince(startedAt), detail)
         }
