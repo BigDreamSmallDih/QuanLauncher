@@ -5,17 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/bg_screen_gradient"
     android:paddingHorizontal="32dp"
     android:paddingVertical="24dp"
     tools:context=".core.minecraft.MinecraftLoadingActivity">
 
     <ImageView
         android:id="@+id/minecraftLaunchLogo"
-        android:layout_width="58dp"
-        android:layout_height="58dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:contentDescription="@string/splash_logo_desc"
-        android:src="@drawable/ic_quan_logo"
+        android:src="@drawable/ic_quan_mark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,8 +68,8 @@
         android:id="@+id/minecraftLaunchProgress"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="0dp"
-        android:layout_height="5dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="6dp"
+        android:layout_marginTop="14dp"
         android:indeterminate="false"
         android:max="100"
         android:progress="0"
@@ -112,7 +112,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_minecraft_loading_terminal"
         android:fadeScrollbars="false"
-        android:padding="14dp"
+        android:padding="16dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/minecraftLaunchReturn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,9 +127,25 @@
             android:fontFamily="monospace"
             android:includeFontPadding="false"
             android:lineSpacingExtra="3dp"
-            android:textColor="#EAF9F0"
+            android:textColor="#E6E8F2"
+            android:textIsSelectable="true"
             android:textSize="11sp" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/minecraftLaunchCopy"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:background="@drawable/bg_launch_button"
+        android:minWidth="0dp"
+        android:paddingHorizontal="14dp"
+        android:text="@string/minecraft_loading_copy"
+        android:textAllCaps="false"
+        android:textColor="@color/on_primary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/minecraftLaunchLogTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/minecraftLaunchLogTitle" />
 
     <Button
         android:id="@+id/minecraftLaunchReturn"

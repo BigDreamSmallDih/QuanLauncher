@@ -1,33 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- QuanLauncher comics palette -->
-    <color name="primary">#E63946</color>
-    <color name="on_primary">#FFFFFF</color>
-    <color name="secondary">#1D70F5</color>
-    <color name="on_secondary">#FFFFFF</color>
-    <color name="primary_container">#FFD6D9</color>
-    <color name="on_primary_container">#111111</color>
-    <color name="tertiary">#FFC400</color>
-    <color name="on_tertiary">#111111</color>
-    <color name="external_mod_ad">#FF8A00</color>
-    <color name="error">#D00000</color>
-    <color name="on_error">#FFFFFF</color>
-    <color name="background">#FFF3C4</color>
-    <color name="surface">#FFFFFF</color>
-    <color name="surface_variant">#FFE9A8</color>
-    <color name="on_background">#111111</color>
-    <color name="on_surface">#111111</color>
-    <color name="on_surface_variant">#111111</color>
-    <color name="outline">#111111</color>
+    <!-- QuanLauncher gray palette -->
+    <color name="primary">#ADB1C4</color>
+    <color name="on_primary">#1E2029</color>
+    <color name="secondary">#8E93A8</color>
+    <color name="on_secondary">#1E2029</color>
+    <color name="primary_container">#464A5A</color>
+    <color name="on_primary_container">#E1E4F0</color>
+    <color name="tertiary">#C6CADB</color>
+    <color name="on_tertiary">#1E2029</color>
+    <color name="external_mod_ad">#D8B98A</color>
+    <color name="error">#FF8A8A</color>
+    <color name="on_error">#1E1E1E</color>
+    <color name="background">#2A2D37</color>
+    <color name="surface">#353844</color>
+    <color name="surface_variant">#424655</color>
+    <color name="on_background">#EEF0F7</color>
+    <color name="on_surface">#EEF0F7</color>
+    <color name="on_surface_variant">#C9CCDA</color>
+    <color name="outline">#4F5366</color>
+    <color name="divider">#464A5A</color>
     <color name="white">#FFFFFF</color>
-    <color name="divider">#111111</color>
-    <color name="scrim">#66000000</color>
-    <color name="glow_green">#FFC400</color>
-    <color name="glow_cyan">#1D70F5</color>
-    <color name="abi_label_text">#111111</color>
-    <color name="accent_text">#E63946</color>
-    <color name="text_primary">#111111</color>
-    <color name="text_secondary">#4A4A4A</color>
-    <color name="qa_icon_color">#111111</color>
-    <color name="ic_launcher_adaptive_back">#FFC400</color>
-    <color name="comic_ink">#111111</color>
+    <color name="scrim">#99000000</color>
+    <color name="glow_green">#ADB1C4</color>
+    <color name="glow_cyan">#8E93A8</color>
+    <color name="abi_label_text">#EEF0F7</color>
+    <color name="accent_text">#C6CADB</color>
+    <color name="text_primary">#EEF0F7</color>
+    <color name="text_secondary">#A5A9BB</color>
+    <color name="qa_icon_color">#EEF0F7</color>
+    <color name="ic_launcher_adaptive_back">#585D6D</color>
 </resources>

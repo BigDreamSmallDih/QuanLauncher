@@ -16,6 +16,7 @@ public class LogcatOverlayManager {
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
     private volatile boolean onSplash = false;
     private volatile boolean onLoading = false;
+    private SharedPreferences.OnSharedPreferenceChangeListener prefListener;
 
     private LogcatOverlayManager(Application app) {
         this.app = app;
@@ -37,6 +38,7 @@ public class LogcatOverlayManager {
         if (overlay == null) overlay = new LogcatOverlay(act.getApplicationContext());
         ViewGroup root = act.findViewById(android.R.id.content);
         if (root == null) return;
+        overlay.setTranslationZ(1000f);
         if (overlay.getParent() != root) {
             if (overlay.getParent() instanceof ViewGroup) ((ViewGroup) overlay.getParent()).removeView(overlay);
             root.addView(overlay);
@@ -70,12 +72,18 @@ public class LogcatOverlayManager {
 
     private void registerSettingsListener() {
         SharedPreferences sp = app.getSharedPreferences("feature_settings", Context.MODE_PRIVATE);
-        sp.registerOnSharedPreferenceChangeListener((prefs, key) -> {
+        // simpan referensi kuat: listener SharedPreferences disimpan weak dan bisa hilang oleh GC
+        prefListener = (prefs, key) -> {
             if ("settings_json".equals(key)) updateVisibility();
-        });
+        };
+        sp.registerOnSharedPreferenceChangeListener(prefListener);
     }
 
     public void refreshVisibility() { updateVisibility(); }
+
+    public void ensureAttached(Activity act) {
+        try { attachTo(act); } catch (Throwable ignored) {}
+    }
 
 
 }
